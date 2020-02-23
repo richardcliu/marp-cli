@@ -310,7 +310,7 @@ export default async function(argv: string[] = []): Promise<number> {
 
         await server.start()
 
-        const url = `http://localhost:${server.port}`
+        const url = `http://${server.address}:${server.port}`
         const message = `[Server mode] Start server listened at ${url}/ ...`
 
         cli.info(chalk.green(message))

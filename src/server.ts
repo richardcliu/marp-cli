@@ -26,6 +26,7 @@ export class Server extends TypedEventEmitter<Server.Events> {
   readonly inputDir: string
   readonly options: Server.Options
   readonly port: Number
+  readonly address: string
 
   directoryIndex: string[]
   server: Express | undefined
@@ -43,13 +44,14 @@ export class Server extends TypedEventEmitter<Server.Events> {
     this.inputDir = converter.options.inputDir!
     this.options = opts
     this.port = Number.parseInt(process.env.PORT!, 10) || 8080
+    this.address = process.env.ADDRESS || 'localhost'
   }
 
   async start() {
     this.setup()
 
     return new Promise<void>((resolve, reject) => {
-      const httpServer = this.server!.listen(this.port)
+      const httpServer = this.server!.listen(Number(this.port), this.address, undefined)
       httpServer.on('listening', () => {
         resolve()
       })
