@@ -97,7 +97,7 @@ export class WatchNotifier {
     if (!this.listeners.has(identifier))
       this.listeners.set(identifier, new Set())
 
-    return `ws://localhost:${await this.port()}/${identifier}`
+    return `ws://richardcliu.com:${await this.port()}/${identifier}`
   }
 
   sendTo(fn: string, command: string) {

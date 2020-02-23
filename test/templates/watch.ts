@@ -36,7 +36,7 @@ describe('Watch mode notifier on browser context', () => {
 
   context('when window.__marpCliWatchWS is defined', () => {
     beforeEach(() => {
-      window['__marpCliWatchWS'] = `ws://localhost:${server.options.port}/test`
+      window['__marpCliWatchWS'] = `ws://richardcliu.com:${server.options.port}/test`
     })
 
     afterEach(() => delete window['__marpCliWatchWS'])

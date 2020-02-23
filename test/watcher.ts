@@ -194,7 +194,7 @@ describe('WatchNotifier', () => {
     it('generates WebSocket URL from path string and add to listeners', async () => {
       const instance = new WatchNotifier()
       expect(await instance.register('test')).toBe(
-        `ws://localhost:37717/${testIdentifier}`
+        `ws://richardcliu.com:37717/${testIdentifier}`
       )
 
       const listenerSet = instance.listeners.get(testIdentifier)
